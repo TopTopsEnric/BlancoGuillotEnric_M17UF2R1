@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 20
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8158c318baea54a4485c22bfb1c047a3
+      internalID: -545512372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 22
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e5cfe691f002b4aa13bfdabfdca93d
+      internalID: 2109538195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 21
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c263a8b3e4bf8094aacea6ab29076533
+      internalID: 88377714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 21
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d79d79c89edfee48aa2540fc41c2882
+      internalID: -564903518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 20
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3298f24f1abea4b448e8e5adbb4454e4
+      internalID: 302851993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_5
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 21
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f230f7ebaeefd46928c170a8bd7542
+      internalID: 1254037824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_6
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 20
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f279a3fe25e6104a945df15bfe17c63
+      internalID: 963781838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_Gun_right_up_7
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 20
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76dc6ecb78e3454bb2f6cf4ee92c4b2
+      internalID: 876021982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Walk_Gun_right_up_0: -545512372
+      Walk_Gun_right_up_1: 2109538195
+      Walk_Gun_right_up_2: 88377714
+      Walk_Gun_right_up_3: -564903518
+      Walk_Gun_right_up_4: 302851993
+      Walk_Gun_right_up_5: 1254037824
+      Walk_Gun_right_up_6: 963781838
+      Walk_Gun_right_up_7: 876021982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

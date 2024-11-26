@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: death_spear_left_up_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 20
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7333801b286b44f8533ecc6e92732e
+      internalID: 1108282257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_spear_left_up_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 21
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f667436e0d49a64180adee3f4ebd6f2
+      internalID: -1184493743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_spear_left_up_2
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 21
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ce600a564d3e047b3a3e16187bfeac
+      internalID: 1451119290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_spear_left_up_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 21
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd6761579722a84dad39292521da9e8
+      internalID: -1098933858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_spear_left_up_4
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 21
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c741670350a6340a0ab508feb492ff
+      internalID: -1907845206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_spear_left_up_5
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 21
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f837556661d6148947f762499da339
+      internalID: -569723894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_spear_left_up_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 21
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafa8f7690b599549ad74ba4141cc668
+      internalID: -448359047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_spear_left_up_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 21
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81097532b67d10647b571eb291d932c2
+      internalID: -2016174567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      death_spear_left_up_0: 1108282257
+      death_spear_left_up_1: -1184493743
+      death_spear_left_up_2: 1451119290
+      death_spear_left_up_3: -1098933858
+      death_spear_left_up_4: -1907845206
+      death_spear_left_up_5: -569723894
+      death_spear_left_up_6: -448359047
+      death_spear_left_up_7: -2016174567
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

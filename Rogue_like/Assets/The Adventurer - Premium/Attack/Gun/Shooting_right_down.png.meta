@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Shooting_right_down_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 20
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d2c0bb4cc68e74386cee528c45c80e
+      internalID: 1823880320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_right_down_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 20
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e7d51da763acd4988e097dd4a65cfe
+      internalID: 1844875616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_right_down_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 20
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb66462a168a10645997a5ce5f159cfc
+      internalID: 1827162370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_right_down_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 20
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62bc4edba75f5714e8e05320948e825e
+      internalID: 2142022347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_right_down_4
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 20
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bfe8646c2b9754a95ba8be4d24c9f2
+      internalID: -1173173061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_right_down_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 20
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d965278b27bd7449adc2ab49c6f05c
+      internalID: -1860404787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_right_down_6
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 20
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cec79ca3b566f49a6cfd6da914eb65
+      internalID: 951587368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooting_right_down_7
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 20
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ba11bac11ae2d41b60dc60ffcbe816
+      internalID: 1735498607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shooting_right_down_0: 1823880320
+      Shooting_right_down_1: 1844875616
+      Shooting_right_down_2: 1827162370
+      Shooting_right_down_3: 2142022347
+      Shooting_right_down_4: -1173173061
+      Shooting_right_down_5: -1860404787
+      Shooting_right_down_6: 951587368
+      Shooting_right_down_7: 1735498607
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

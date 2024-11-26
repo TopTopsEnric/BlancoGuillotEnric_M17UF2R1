@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 23
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d7b94b806344346a2164006d730e2b
+      internalID: -948637182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 22
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e26b5f79bbf280419062ea5520da992
+      internalID: 1273787568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 22
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8bd1cb01f92d84295bc610c6a48aa2
+      internalID: -1682142546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 24
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c537ead9572a145963de3af69fee65
+      internalID: -662026190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 22
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f916c2fb7e0e1724986b1142b6c6391c
+      internalID: -717272734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 21
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c77dd386ec1e304ea3a5b79a9bed451
+      internalID: 1608789087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_6
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 20
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1db71bd2cad9a54c9bdc2dca7100485
+      internalID: 1868468349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_while_shooting_Right_7
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 23
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1258e1511bd489f4692414d103b8c225
+      internalID: -1498461694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Run_while_shooting_Right_0: -948637182
+      Run_while_shooting_Right_1: 1273787568
+      Run_while_shooting_Right_2: -1682142546
+      Run_while_shooting_Right_3: -662026190
+      Run_while_shooting_Right_4: -717272734
+      Run_while_shooting_Right_5: 1608789087
+      Run_while_shooting_Right_6: 1868468349
+      Run_while_shooting_Right_7: -1498461694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

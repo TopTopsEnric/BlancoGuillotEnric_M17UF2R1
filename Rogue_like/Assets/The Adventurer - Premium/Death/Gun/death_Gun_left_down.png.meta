@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: death_Gun_left_down_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 20
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5882ff8104e9c4aba1037741a04587
+      internalID: -971712726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_left_down_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 20
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875dedef1da8ac34bb3e60970acfb81d
+      internalID: 1133702166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_left_down_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 21
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddbebae5945cf24dbf3a46d4c1d875f
+      internalID: -1104233796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_left_down_3
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 21
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7653c61d0b3547b4eb41dc9bdc4c8e3b
+      internalID: 513641136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_left_down_4
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 21
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c564764183ac34d8774be7064f0e52
+      internalID: 470546757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_left_down_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 20
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc26277535410d9469a776e90edc702d
+      internalID: 1908520113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_left_down_6
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 15
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0e028aa3b9a894aa7d1893d256b4a2
+      internalID: -132594030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_left_down_7
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 15
+        width: 26
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee4b524fe1bac4458f6cba3bb0e760a
+      internalID: -84131777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      death_Gun_left_down_0: -971712726
+      death_Gun_left_down_1: 1133702166
+      death_Gun_left_down_2: -1104233796
+      death_Gun_left_down_3: 513641136
+      death_Gun_left_down_4: 470546757
+      death_Gun_left_down_5: 1908520113
+      death_Gun_left_down_6: -132594030
+      death_Gun_left_down_7: -84131777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

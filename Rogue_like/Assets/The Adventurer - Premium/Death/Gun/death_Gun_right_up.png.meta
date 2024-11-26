@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: death_Gun_right_up_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 20
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75fce69037cbb54ea364a799bf30144
+      internalID: 544057612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_right_up_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 21
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b163eb9589e8140a08edff7e384141
+      internalID: 305746526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_right_up_2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 21
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad5479df99dbd748b3d04cb211d84c9
+      internalID: 1585122969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_right_up_3
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 20
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4706d3f621d7b2a49920bba880ef642a
+      internalID: 1888271667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_right_up_4
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 13
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd788d92c10b2249bb86ce9d32b1f73
+      internalID: 87067446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_right_up_6
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 16
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0e050b984f0eb419ca657319f79805
+      internalID: 2123810980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_right_up_8
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 16
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc9036aa8bbe904c877e3e2b82da0dd
+      internalID: -268223383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_Gun_right_up_9
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 16
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce3bec6486490146a71f0781678d404
+      internalID: 441414106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      death_Gun_right_up_0: 544057612
+      death_Gun_right_up_1: 305746526
+      death_Gun_right_up_2: 1585122969
+      death_Gun_right_up_3: 1888271667
+      death_Gun_right_up_4: 87067446
+      death_Gun_right_up_5: -920658540
+      death_Gun_right_up_6: 2123810980
+      death_Gun_right_up_7: 2098966380
+      death_Gun_right_up_8: -268223383
+      death_Gun_right_up_9: 441414106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

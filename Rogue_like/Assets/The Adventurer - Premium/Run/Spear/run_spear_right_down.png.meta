@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: run_spear_right_down_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 16
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8902951f16aa3bc46af2822d810cd935
+      internalID: 1285726303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_spear_right_down_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 14
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d75cd85cf888f4d907e902a43eb483
+      internalID: 1309429313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_spear_right_down_2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 13
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d6100fadd8bab4895bcc0774ec6d2c
+      internalID: 705589555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_spear_right_down_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 14
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf66059471cbfd409808049998edd4c
+      internalID: 852153779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_spear_right_down_4
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 16
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ee22ae6606214344b383c546f9415a5
+      internalID: -1154722571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_spear_right_down_5
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 14
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c256d2f8749c34a8e951d7eb471c28
+      internalID: -2051932487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_spear_right_down_6
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 13
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095cc95c115ebaf4baaf7ebcea1755d1
+      internalID: -1105297280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_spear_right_down_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 14
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8cca9715e6e0244b380ce1d02c55ce
+      internalID: -492839054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      run_spear_right_down_0: 1285726303
+      run_spear_right_down_1: 1309429313
+      run_spear_right_down_2: 705589555
+      run_spear_right_down_3: 852153779
+      run_spear_right_down_4: -1154722571
+      run_spear_right_down_5: -2051932487
+      run_spear_right_down_6: -1105297280
+      run_spear_right_down_7: -492839054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
