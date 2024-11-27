@@ -13,5 +13,8 @@ public class ItemData: ScriptableObject
         public string description;
         public bool isStackable;
         public int maxStackSize;
-    
+        public int damage;
+        public int range;
+        public float price;
+        
 }
