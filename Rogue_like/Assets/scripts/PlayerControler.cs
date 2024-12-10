@@ -35,6 +35,24 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sprintar"",
+                    ""type"": ""Button"",
+                    ""id"": ""daf2c3d4-ccf9-4e47-a4e7-bc4260caaa0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mirar"",
+                    ""type"": ""Button"",
+                    ""id"": ""d39eeab0-41c0-4eef-99df-342295f3869a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +110,28 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3bc08793-b19b-4f64-933f-d05996e5c054"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprintar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ed347e81-6bc1-4acc-8dd8-3449a602dc5a"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mirar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +141,8 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Sprintar = m_Player.FindAction("Sprintar", throwIfNotFound: true);
+        m_Player_Mirar = m_Player.FindAction("Mirar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +205,15 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Sprintar;
+    private readonly InputAction m_Player_Mirar;
     public struct PlayerActions
     {
         private @PlayerControler m_Wrapper;
         public PlayerActions(@PlayerControler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Sprintar => m_Wrapper.m_Player_Sprintar;
+        public InputAction @Mirar => m_Wrapper.m_Player_Mirar;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +226,12 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Sprintar.started += instance.OnSprintar;
+            @Sprintar.performed += instance.OnSprintar;
+            @Sprintar.canceled += instance.OnSprintar;
+            @Mirar.started += instance.OnMirar;
+            @Mirar.performed += instance.OnMirar;
+            @Mirar.canceled += instance.OnMirar;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -187,6 +239,12 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Sprintar.started -= instance.OnSprintar;
+            @Sprintar.performed -= instance.OnSprintar;
+            @Sprintar.canceled -= instance.OnSprintar;
+            @Mirar.started -= instance.OnMirar;
+            @Mirar.performed -= instance.OnMirar;
+            @Mirar.canceled -= instance.OnMirar;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -207,5 +265,7 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnSprintar(InputAction.CallbackContext context);
+        void OnMirar(InputAction.CallbackContext context);
     }
 }

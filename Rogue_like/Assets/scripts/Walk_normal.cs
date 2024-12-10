@@ -7,7 +7,7 @@ public class Walk_normal : WalkSo
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("walk");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

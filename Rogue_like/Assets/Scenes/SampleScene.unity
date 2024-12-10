@@ -6899,11 +6899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dab57e9f72a7de44adcb8696073ed0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState: {fileID: 0}
-  arma: 0
-  melee: 0
-  dash: 0
-  muerto: 0
+  CurrentState: {fileID: 11400000, guid: 919cf3299eb5c6d4d8716b2f42533415, type: 2}
+  animator: {fileID: 1314717667}
 --- !u!1 &1795133539
 GameObject:
   m_ObjectHideFlags: 0

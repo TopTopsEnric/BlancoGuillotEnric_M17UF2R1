@@ -8,7 +8,7 @@ public class Idle_NormalS : IdleSo
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("idle");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

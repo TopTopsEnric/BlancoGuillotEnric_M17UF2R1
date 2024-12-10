@@ -7,7 +7,7 @@ public class Run_normalSO : RunSO
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("run");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

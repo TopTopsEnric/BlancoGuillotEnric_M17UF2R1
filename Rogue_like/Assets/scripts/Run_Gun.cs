@@ -7,7 +7,7 @@ public class Run_Gun : RunSO
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("run_gun");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

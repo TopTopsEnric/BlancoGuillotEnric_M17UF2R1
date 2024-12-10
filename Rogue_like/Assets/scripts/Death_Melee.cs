@@ -7,7 +7,7 @@ public class Death_Melee : DeathSO
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("death_melee");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

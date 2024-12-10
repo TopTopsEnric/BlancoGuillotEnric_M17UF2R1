@@ -7,7 +7,7 @@ public class Idle_Gun : IdleSo
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("idle_gun");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

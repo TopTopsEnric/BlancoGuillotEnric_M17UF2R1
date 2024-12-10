@@ -8,7 +8,7 @@ public class Death_normal : DeathSO
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("death");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

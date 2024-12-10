@@ -7,7 +7,7 @@ public class Death_Gun : DeathSO
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("death_gun");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

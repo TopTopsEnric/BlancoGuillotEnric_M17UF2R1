@@ -5,13 +5,14 @@ using UnityEngine;
 public class Player_StateController : MonoBehaviour
 {
     public StateSO CurrentState;
-    public bool arma;
-    public bool melee;
-    public bool caminando;
-    public bool corriendo;
-    public bool atacando;
-    public bool dash;
-    public bool muerto;
+    public bool arma {get;set;}
+    public bool melee { get; set; }
+    public bool caminando { get; set; }
+    public bool corriendo { get; set; }
+    public bool atacando { get; set; }
+    public bool dash { get; set; }
+    public bool muerto { get; set; }
+    public Animator animator;
     void Start()
     {
         

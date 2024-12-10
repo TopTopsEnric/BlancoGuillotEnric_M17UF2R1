@@ -7,7 +7,7 @@ public class RealodingSO : StateSO
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
+        ec.animator.Play("realoding");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {
