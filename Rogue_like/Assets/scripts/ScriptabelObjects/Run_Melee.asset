@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d24b816d8399804b9cce41918e5c35b, type: 3}
   m_Name: Run_Melee
   m_EditorClassIdentifier: 
-  StatesToGo: []
-  animator: {fileID: 0}
+  StatesToGo:
+  - {fileID: 11400000, guid: 7c799c55196c3604383323d11dcad3c3, type: 2}
+  - {fileID: 11400000, guid: 96b1e4e7e615b89498ddb533f20a9d3b, type: 2}
+  - {fileID: 11400000, guid: f7c7e4c22eebdee43a5ccdaeaf73c29a, type: 2}
+  - {fileID: 11400000, guid: fd21ff8b241e55e498ea0d699dc769a6, type: 2}
+  - {fileID: 11400000, guid: 7773ecadfb59f644f931b6acee68cc02, type: 2}

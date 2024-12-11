@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0fc8ab28053284b98422e4432ac410, type: 3}
   m_Name: AttackShooting
   m_EditorClassIdentifier: 
-  StatesToGo: []
-  animator: {fileID: 0}
+  StatesToGo:
+  - {fileID: 11400000, guid: 191f80449a2a8184bab727592bb64a0b, type: 2}
+  - {fileID: 11400000, guid: 0f51dc1ed137bb2448da8bfaf37176a9, type: 2}

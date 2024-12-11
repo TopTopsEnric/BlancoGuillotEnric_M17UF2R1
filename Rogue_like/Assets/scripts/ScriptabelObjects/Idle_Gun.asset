@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40be8b3369f6e99448026335b7c34d1f, type: 3}
   m_Name: Idle_Gun
   m_EditorClassIdentifier: 
-  StatesToGo: []
-  animator: {fileID: 0}
+  StatesToGo:
+  - {fileID: 11400000, guid: 919cf3299eb5c6d4d8716b2f42533415, type: 2}
+  - {fileID: 11400000, guid: 9ae01c59270e27c448c60a77336ee854, type: 2}
+  - {fileID: 11400000, guid: 191f80449a2a8184bab727592bb64a0b, type: 2}
+  - {fileID: 11400000, guid: e491304b4b2af6a47a392b57a3f26d02, type: 2}
+  - {fileID: 11400000, guid: 6a7298da60b33f3408c1b89257b88a64, type: 2}
+  - {fileID: 11400000, guid: c8151411e7a9072499174fa5aa152b5b, type: 2}

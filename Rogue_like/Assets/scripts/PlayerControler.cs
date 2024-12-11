@@ -47,12 +47,12 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Mirar"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""d39eeab0-41c0-4eef-99df-342295f3869a"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -114,7 +114,7 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3bc08793-b19b-4f64-933f-d05996e5c054"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

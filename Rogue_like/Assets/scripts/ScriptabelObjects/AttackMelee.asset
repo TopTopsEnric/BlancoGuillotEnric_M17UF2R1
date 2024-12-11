@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6214dcda3ee437418413e5b43ca4470, type: 3}
   m_Name: AttackMelee
   m_EditorClassIdentifier: 
-  StatesToGo: []
+  StatesToGo:
+  - {fileID: 11400000, guid: 9ae01c59270e27c448c60a77336ee854, type: 2}
+  - {fileID: 11400000, guid: fd21ff8b241e55e498ea0d699dc769a6, type: 2}
+  - {fileID: 11400000, guid: f21f77dd15247c040b31b31917dd6c99, type: 2}

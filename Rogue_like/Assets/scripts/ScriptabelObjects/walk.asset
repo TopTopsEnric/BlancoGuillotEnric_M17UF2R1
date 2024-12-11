@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3247fdf3205492a4095412b662a2e756, type: 3}
   m_Name: walk
   m_EditorClassIdentifier: 
-  StatesToGo: []
-  animator: {fileID: 0}
+  StatesToGo:
+  - {fileID: 11400000, guid: 7c799c55196c3604383323d11dcad3c3, type: 2}
+  - {fileID: 11400000, guid: 919cf3299eb5c6d4d8716b2f42533415, type: 2}
+  - {fileID: 11400000, guid: 191f80449a2a8184bab727592bb64a0b, type: 2}
+  - {fileID: 11400000, guid: fd21ff8b241e55e498ea0d699dc769a6, type: 2}
+  - {fileID: 11400000, guid: 7a6eeaa413b2d50419822a6d3419d4e9, type: 2}

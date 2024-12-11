@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26cb176e7bea38241b9f5555f822cb60, type: 3}
   m_Name: Run_normal
   m_EditorClassIdentifier: 
-  StatesToGo: []
-  animator: {fileID: 0}
+  StatesToGo:
+  - {fileID: 11400000, guid: 9546c11851b068246a589c9ba331ad83, type: 2}
+  - {fileID: 11400000, guid: 96b1e4e7e615b89498ddb533f20a9d3b, type: 2}
+  - {fileID: 11400000, guid: f21f77dd15247c040b31b31917dd6c99, type: 2}
+  - {fileID: 11400000, guid: 7a6eeaa413b2d50419822a6d3419d4e9, type: 2}

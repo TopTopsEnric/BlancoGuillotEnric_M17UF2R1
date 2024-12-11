@@ -5,110 +5,43 @@ using UnityEngine;
 public class Player_StateController : MonoBehaviour
 {
     public StateSO CurrentState;
-    public bool arma {get;set;}
-    public bool melee { get; set; }
-    public bool caminando { get; set; }
-    public bool corriendo { get; set; }
-    public bool atacando { get; set; }
-    public bool dash { get; set; }
-    public bool muerto { get; set; }
+    public bool arma {get;set;}=false;
+    public bool melee { get; set; } = false;
+    public bool caminando { get; set; } = false;
+    public bool corriendo { get; set; } = false;
+    public bool atacando { get; set; } = false;
+    public bool dash { get; set; } = false;
+    public bool muerto { get; set; } = false;
     public Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
     public void seleccionar_estado()
     {
-        if(muerto== false)
+        if (muerto == false)
         {
-            if (melee == true)
+            if (melee)
             {
-                if (caminando == true)
-                {
-                    if (atacando == true)
-                    {
-                        GoToState<Attack_Melee>();
-                    }
-                    else
-                    {
-                        GoToState<Walk_Melee>();
-                    }
-                }
-                else if (corriendo == true)
-                {
-                    GoToState<Run_Melee>();
-               }
-                else
-                {
-                    GoToState<Idle_Melee>();
-                }
+                TransitionToMovementState("Melee");
             }
-            else if (arma == true)
+            else if (arma)
             {
-                if (caminando == true)
-                {
-                    if (atacando == true)
-                    {
-                        GoToState<Attack_Shooting>();
-                    }
-                    else
-                    {
-                        GoToState<Walk_Gun>();
-                    }
-                }
-                else if (corriendo == true)
-                {
-                    if (atacando == true)
-                    {
-                        GoToState<Attack_run_shooting>();
-                    }
-                    else
-                    {
-                        GoToState<Run_Gun>();
-                    }
-                }
-                else
-                {
-                    GoToState<Idle_Gun>();
-                }
+                TransitionToMovementState("Gun");
             }
             else
             {
-                if (caminando == true)
-                {
-                    if (atacando == true)
-                    {
-                       // emitir sonido de error
-                    }
-                    else
-                    {
-                        GoToState<Walk_normal>();
-                    }
-                }
-                else if (corriendo == true)
-                {
-                    if (atacando == true)
-                    {
-                        // no puede atacar, sonido de error
-                    }
-                    else
-                    {
-                        GoToState<Run_normalSO>();
-                    }
-                }
-                else
-                {
-                    GoToState<Idle_Gun>();
-                }
+                TransitionToMovementState("Normal");
             }
         }
         else
         {
-            if(melee== true)
+            // Estado de muerte
+            if (melee)
             {
                 GoToState<Death_Melee>();
             }
-            else if (arma == true)
+            else if (arma)
             {
                 GoToState<Death_Gun>();
             }
@@ -117,7 +50,7 @@ public class Player_StateController : MonoBehaviour
                 GoToState<Death_normal>();
             }
         }
-       
+
     }
     
     void Update()
@@ -126,7 +59,29 @@ public class Player_StateController : MonoBehaviour
         CurrentState.OnStateUpdate(this);
     }
 
-
+    private void TransitionToMovementState(string baseState)
+{
+    if (atacando)
+    {
+        // Si está atacando, selecciona el estado de ataque correspondiente
+        GoToState($"Attack_{baseState}");
+    }
+    else if (corriendo)
+    {
+        // Si está corriendo, selecciona el estado de correr correspondiente
+        GoToState($"Run_{baseState}");
+    }
+    else if (caminando)
+    {
+        // Si está caminando, selecciona el estado de caminar correspondiente
+        GoToState($"Walk_{baseState}");
+    }
+    else
+    {
+        // Si no está en movimiento, selecciona el estado inactivo correspondiente
+        GoToState($"Idle_{baseState}");
+    }
+}
     public void GoToState<T>() where T : StateSO
     {
         if (CurrentState.StatesToGo.Find(state => state is T))

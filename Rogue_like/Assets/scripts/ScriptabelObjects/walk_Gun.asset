@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49edf04fa59ac7441ba65f264f145642, type: 3}
   m_Name: walk_Gun
   m_EditorClassIdentifier: 
-  StatesToGo: []
-  animator: {fileID: 0}
+  StatesToGo:
+  - {fileID: 11400000, guid: 0f51dc1ed137bb2448da8bfaf37176a9, type: 2}
+  - {fileID: 11400000, guid: 9546c11851b068246a589c9ba331ad83, type: 2}
+  - {fileID: 11400000, guid: fd21ff8b241e55e498ea0d699dc769a6, type: 2}
+  - {fileID: 11400000, guid: 96b1e4e7e615b89498ddb533f20a9d3b, type: 2}
+  - {fileID: 11400000, guid: 6a7298da60b33f3408c1b89257b88a64, type: 2}
+  - {fileID: 11400000, guid: e491304b4b2af6a47a392b57a3f26d02, type: 2}
+  - {fileID: 11400000, guid: c8151411e7a9072499174fa5aa152b5b, type: 2}
