@@ -21,6 +21,36 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void OnAtacar(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // Cuando se empieza a presionar el botón
+            Debug.Log("Atacando");
+            
+            estado.atacando = true;
+            estado.seleccionar_estado();
+        }
+        else if (context.canceled)
+        {
+            // Cuando se suelta el botón
+            Debug.Log("dejar de Atacar");
+           
+            estado.atacando = false;
+            estado.seleccionar_estado();
+        }
+    }
+
+    public void OnRecargar(InputAction.CallbackContext context)
+    {
+        Debug.Log("Iniciando recarga...");
+        moveSpeed = 0f; // Bloquea el movimiento
+        estado.corriendo = false;
+        estado.caminando = false;
+        estado.recargando = true;
+       // StartCoroutine(HandleReloadAnimation());
+
+    }
 
     public void OnSprintar(InputAction.CallbackContext context)
     {
@@ -60,8 +90,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        
-
         if (context.started)
         {
             Debug.Log("andando");

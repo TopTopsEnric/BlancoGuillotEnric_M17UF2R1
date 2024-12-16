@@ -12,7 +12,7 @@ public class Player_StateController : MonoBehaviour
     public bool caminando { get; set; } = false;
     public bool corriendo { get; set; } = false;
     public bool atacando { get; set; } = false;
-    public bool dash { get; set; } = false;
+    public bool recargando { get; set; } = false;
     public bool muerto { get; set; } = false;
     public Animator animator;
     private static Dictionary<string, Type> stateTypes = new Dictionary<string, Type>
@@ -36,6 +36,8 @@ public class Player_StateController : MonoBehaviour
     { "Idle_Melee", typeof(Idle_Melee) },
     { "Idle_Gun", typeof(Idle_Gun) },
     { "Idle_Normal", typeof(Idle_NormalS) },
+    // Estado de Recarga
+    { "Recargando", typeof(RealodingSO) },
 
     // Los estados de muerte
     { "Death_Melee", typeof(Death_Melee) },
@@ -49,7 +51,14 @@ public class Player_StateController : MonoBehaviour
     public void seleccionar_estado()
     {
         string stateKey = "";
-
+        if (muerto)
+        {
+            stateKey = $"Death_{(arma ? "Gun" : (melee ? "Melee" : "Normal"))}";
+        }
+        if (recargando)
+        {
+            stateKey = "Recargando";
+        }
         // Si el jugador está atacando, selecciona el estado de ataque correspondiente
         if (atacando)
         {

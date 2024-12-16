@@ -53,6 +53,24 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Atacar"",
+                    ""type"": ""Button"",
+                    ""id"": ""12611d71-6770-47e1-9f47-072813f210ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Recargar"",
+                    ""type"": ""Button"",
+                    ""id"": ""563ecf07-89bd-4f0a-8e72-0f7715fc414b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +150,28 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                     ""action"": ""Mirar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d33a13ac-e199-437e-bcc8-b40e479e7715"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Atacar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8129e704-77e2-4167-82be-a735e1221930"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recargar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +183,8 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Sprintar = m_Player.FindAction("Sprintar", throwIfNotFound: true);
         m_Player_Mirar = m_Player.FindAction("Mirar", throwIfNotFound: true);
+        m_Player_Atacar = m_Player.FindAction("Atacar", throwIfNotFound: true);
+        m_Player_Recargar = m_Player.FindAction("Recargar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +249,8 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Sprintar;
     private readonly InputAction m_Player_Mirar;
+    private readonly InputAction m_Player_Atacar;
+    private readonly InputAction m_Player_Recargar;
     public struct PlayerActions
     {
         private @PlayerControler m_Wrapper;
@@ -214,6 +258,8 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Sprintar => m_Wrapper.m_Player_Sprintar;
         public InputAction @Mirar => m_Wrapper.m_Player_Mirar;
+        public InputAction @Atacar => m_Wrapper.m_Player_Atacar;
+        public InputAction @Recargar => m_Wrapper.m_Player_Recargar;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +278,12 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
             @Mirar.started += instance.OnMirar;
             @Mirar.performed += instance.OnMirar;
             @Mirar.canceled += instance.OnMirar;
+            @Atacar.started += instance.OnAtacar;
+            @Atacar.performed += instance.OnAtacar;
+            @Atacar.canceled += instance.OnAtacar;
+            @Recargar.started += instance.OnRecargar;
+            @Recargar.performed += instance.OnRecargar;
+            @Recargar.canceled += instance.OnRecargar;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +297,12 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
             @Mirar.started -= instance.OnMirar;
             @Mirar.performed -= instance.OnMirar;
             @Mirar.canceled -= instance.OnMirar;
+            @Atacar.started -= instance.OnAtacar;
+            @Atacar.performed -= instance.OnAtacar;
+            @Atacar.canceled -= instance.OnAtacar;
+            @Recargar.started -= instance.OnRecargar;
+            @Recargar.performed -= instance.OnRecargar;
+            @Recargar.canceled -= instance.OnRecargar;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +325,7 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnSprintar(InputAction.CallbackContext context);
         void OnMirar(InputAction.CallbackContext context);
+        void OnAtacar(InputAction.CallbackContext context);
+        void OnRecargar(InputAction.CallbackContext context);
     }
 }
