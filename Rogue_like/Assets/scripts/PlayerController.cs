@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Iniciando sprint");
             moveSpeed = 8f;
             estado.corriendo = true;
+            estado.seleccionar_estado();
         }
         else if (context.canceled)
         {
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Deteniendo sprint");
             moveSpeed = 5f; // Velocidad normal
             estado.corriendo = false;
+            estado.seleccionar_estado();
         }
     }
 
@@ -58,8 +60,22 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        // Obtiene el valor de la entrada
-        moveInput = context.ReadValue<Vector2>();
+        
+
+        if (context.started)
+        {
+            Debug.Log("andando");
+            moveInput = context.ReadValue<Vector2>();
+            estado.caminando = true;
+            estado.seleccionar_estado();
+        }
+        else if (context.canceled)
+        {
+            // Cuando se suelta el botón
+            Debug.Log("Dejando de andar");
+            estado.caminando = false;
+            estado.seleccionar_estado();
+        }
     }
 
     private void FixedUpdate()
