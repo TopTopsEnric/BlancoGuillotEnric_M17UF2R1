@@ -71,6 +71,24 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cambiar a Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""197c3f28-bbf4-40a4-ba52-69646d73043b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cambiar a desarmado"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8597403-1374-488f-ac80-2300ae7a84b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +190,28 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
                     ""action"": ""Recargar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10a12029-412b-49f3-8ee7-6f0e436901e3"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cambiar a Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d294e909-b49c-46cc-8292-e033963a1a7b"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cambiar a desarmado"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +225,8 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
         m_Player_Mirar = m_Player.FindAction("Mirar", throwIfNotFound: true);
         m_Player_Atacar = m_Player.FindAction("Atacar", throwIfNotFound: true);
         m_Player_Recargar = m_Player.FindAction("Recargar", throwIfNotFound: true);
+        m_Player_CambiaraMelee = m_Player.FindAction("Cambiar a Melee", throwIfNotFound: true);
+        m_Player_Cambiaradesarmado = m_Player.FindAction("Cambiar a desarmado", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +293,8 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Mirar;
     private readonly InputAction m_Player_Atacar;
     private readonly InputAction m_Player_Recargar;
+    private readonly InputAction m_Player_CambiaraMelee;
+    private readonly InputAction m_Player_Cambiaradesarmado;
     public struct PlayerActions
     {
         private @PlayerControler m_Wrapper;
@@ -260,6 +304,8 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
         public InputAction @Mirar => m_Wrapper.m_Player_Mirar;
         public InputAction @Atacar => m_Wrapper.m_Player_Atacar;
         public InputAction @Recargar => m_Wrapper.m_Player_Recargar;
+        public InputAction @CambiaraMelee => m_Wrapper.m_Player_CambiaraMelee;
+        public InputAction @Cambiaradesarmado => m_Wrapper.m_Player_Cambiaradesarmado;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +330,12 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
             @Recargar.started += instance.OnRecargar;
             @Recargar.performed += instance.OnRecargar;
             @Recargar.canceled += instance.OnRecargar;
+            @CambiaraMelee.started += instance.OnCambiaraMelee;
+            @CambiaraMelee.performed += instance.OnCambiaraMelee;
+            @CambiaraMelee.canceled += instance.OnCambiaraMelee;
+            @Cambiaradesarmado.started += instance.OnCambiaradesarmado;
+            @Cambiaradesarmado.performed += instance.OnCambiaradesarmado;
+            @Cambiaradesarmado.canceled += instance.OnCambiaradesarmado;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -303,6 +355,12 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
             @Recargar.started -= instance.OnRecargar;
             @Recargar.performed -= instance.OnRecargar;
             @Recargar.canceled -= instance.OnRecargar;
+            @CambiaraMelee.started -= instance.OnCambiaraMelee;
+            @CambiaraMelee.performed -= instance.OnCambiaraMelee;
+            @CambiaraMelee.canceled -= instance.OnCambiaraMelee;
+            @Cambiaradesarmado.started -= instance.OnCambiaradesarmado;
+            @Cambiaradesarmado.performed -= instance.OnCambiaradesarmado;
+            @Cambiaradesarmado.canceled -= instance.OnCambiaradesarmado;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -327,5 +385,7 @@ public partial class @PlayerControler: IInputActionCollection2, IDisposable
         void OnMirar(InputAction.CallbackContext context);
         void OnAtacar(InputAction.CallbackContext context);
         void OnRecargar(InputAction.CallbackContext context);
+        void OnCambiaraMelee(InputAction.CallbackContext context);
+        void OnCambiaradesarmado(InputAction.CallbackContext context);
     }
 }

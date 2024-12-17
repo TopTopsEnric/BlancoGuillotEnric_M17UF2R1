@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;     // Referencia al Rigidbody2D
     private Animator animator;
     private Player_StateController estado;
+    public int cargador=100;
 
     private void Awake()
     {
@@ -20,6 +21,31 @@ public class PlayerController : MonoBehaviour
         estado = GetComponent<Player_StateController>();
     }
 
+    public void OnMelee(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            // Cuando se empieza a presionar el botón
+            Debug.Log("Has cambiado a Melee");
+            estado.arma = false;
+            estado.melee = true;
+            estado.seleccionar_estado();
+        }
+        
+    }
+
+    public void OnSinArmas(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // Cuando se empieza a presionar el botón
+            Debug.Log("Has cambiado a sin arma");
+            estado.arma = false;
+            estado.melee = false;
+            estado.seleccionar_estado();
+        }
+
+    }
 
     public void OnAtacar(InputAction.CallbackContext context)
     {
@@ -43,12 +69,20 @@ public class PlayerController : MonoBehaviour
 
     public void OnRecargar(InputAction.CallbackContext context)
     {
-        Debug.Log("Iniciando recarga...");
-        moveSpeed = 0f; // Bloquea el movimiento
-        estado.corriendo = false;
-        estado.caminando = false;
-        estado.recargando = true;
-       // StartCoroutine(HandleReloadAnimation());
+        if (cargador < 100)
+        {
+            Debug.Log("Iniciando recarga...");
+            moveSpeed = 0f; // Bloquea el movimiento
+            estado.corriendo = false;
+            estado.caminando = false;
+            estado.recargando = true;
+            StartCoroutine(HandleReloadAnimation());
+        }
+        else
+        {
+            //sonido no puedes recargar
+        }
+       
 
     }
 
@@ -104,6 +138,26 @@ public class PlayerController : MonoBehaviour
             estado.caminando = false;
             estado.seleccionar_estado();
         }
+    }
+
+
+    private IEnumerator HandleReloadAnimation()
+    {
+        // Ejecuta la animación de recarga
+        // estado.animator.SetTrigger("Reload"); // Asegúrate de que "Reload" sea un trigger válido en el Animator
+        estado.seleccionar_estado();
+
+        // Opcional: sincroniza con la duración de la animación
+        AnimatorStateInfo stateInfo = estado.animator.GetCurrentAnimatorStateInfo(0);
+        float animationDuration = stateInfo.length;
+
+        yield return new WaitForSeconds(animationDuration);
+
+        // Al terminar la animación, selecciona el siguiente estado
+        Debug.Log("Recarga completa");
+        estado.recargando = false;
+        moveSpeed = 5f; // Restablece la velocidad de movimiento normal
+        estado.seleccionar_estado(); // Cambia al estado correspondiente
     }
 
     private void FixedUpdate()
