@@ -79,18 +79,21 @@ public class Player_StateController : MonoBehaviour
         {
             // Se tiene en cuenta si lleva un arma o no para determinar el tipo de correr
             stateKey = $"Run_{(arma ? "Gun" : (melee ? "Melee" : "Normal"))}";
+            Debug.Log("corriendo");
         }
         // Si el jugador está caminando, selecciona el estado de caminar correspondiente
         else if (caminando)
         {
             // Similar a correr, se tiene en cuenta si está usando melee, arma o sin arma
             stateKey = $"Walk_{(arma ? "Gun" : (melee ? "Melee" : "Normal"))}";
+            Debug.Log("caminando");
         }
         // Si el jugador no está haciendo ninguna de estas cosas, selecciona el estado inactivo correspondiente
         else
         {
             // El estado inactivo también debe considerar si está usando un arma de fuego o un arma melee
             stateKey = $"Idle_{(arma ? "Gun" : (melee ? "Melee" : "Normal"))}";
+            Debug.Log("quieto");
         }
 
         // Verificar si el estado existe en el diccionario
@@ -117,6 +120,7 @@ public class Player_StateController : MonoBehaviour
     
     public void GoToState<T>() where T : StateSO
     {
+        Debug.Log("GO to " + typeof(T).Name);
         if (CurrentState.StatesToGo.Find(state => state is T))
         {
             CurrentState.OnStateExit(this);

@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunSO : StateSO
+public  abstract class IdleSo : StateSO
 {
     public override void OnStateEnter(Player_StateController ec)
     {
-
     }
     public override void OnStateUpdate(Player_StateController ec)
     {
@@ -16,4 +15,5 @@ public class RunSO : StateSO
     {
 
     }
+
 }

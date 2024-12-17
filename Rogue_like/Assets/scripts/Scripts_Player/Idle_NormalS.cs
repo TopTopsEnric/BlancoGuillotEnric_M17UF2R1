@@ -10,6 +10,7 @@ public class Idle_NormalS : IdleSo
     {
         Debug.Log(this.GetType().Name);
         ec.animator.Play("idle");
+        Debug.Log("idleNormal");
     }
     public override void OnStateUpdate(Player_StateController ec)
     {

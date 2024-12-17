@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Velocidad de movimiento
+    public float moveSpeed = 0f; // Velocidad de movimiento
     private Vector2 moveInput;// Entrada de movimiento
     private Vector2 mouseInput;
     private Rigidbody2D rb;     // Referencia al Rigidbody2D
@@ -88,22 +88,27 @@ public class PlayerController : MonoBehaviour
 
     public void OnSprintar(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            // Cuando se empieza a presionar el botón
-            Debug.Log("Iniciando sprint");
-            moveSpeed = 8f;
-            estado.corriendo = true;
-            estado.seleccionar_estado();
-        }
-        else if (context.canceled)
-        {
-            // Cuando se suelta el botón
-            Debug.Log("Deteniendo sprint");
-            moveSpeed = 5f; // Velocidad normal
-            estado.corriendo = false;
-            estado.seleccionar_estado();
-        }
+        
+        
+            if (context.performed)
+            {
+                // Cuando se empieza a presionar el botón
+                Debug.Log("Iniciando sprint");
+                moveSpeed = 8f;
+                estado.corriendo = true;
+                estado.seleccionar_estado();
+            }
+            else if (context.canceled)
+            {
+                // Cuando se suelta el botón
+                Debug.Log("Deteniendo sprint");
+                moveSpeed = 5f; // Velocidad normal
+                estado.corriendo = false;
+                estado.seleccionar_estado();
+            }
+        
+       
+        
     }
 
     public void OnMirar(InputAction.CallbackContext context)
@@ -124,19 +129,26 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed||context.started)
         {
             Debug.Log("andando");
             moveInput = context.ReadValue<Vector2>();
+            float newSpeed = 5f;
+            moveSpeed = Mathf.Max(moveSpeed, newSpeed);
             estado.caminando = true;
             estado.seleccionar_estado();
+           
+
         }
         else if (context.canceled)
         {
-            // Cuando se suelta el botón
-            Debug.Log("Dejando de andar");
+            moveInput = Vector2.zero;
+            rb.velocity = Vector2.zero; // Detiene el Rigidbody
+
+            moveSpeed = 0f;
             estado.caminando = false;
             estado.seleccionar_estado();
+
         }
     }
 
@@ -163,8 +175,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Mueve al jugador en 8 direcciones
+
         Vector2 movement = moveInput * moveSpeed;
         rb.velocity = movement;
-       
     }
 }
