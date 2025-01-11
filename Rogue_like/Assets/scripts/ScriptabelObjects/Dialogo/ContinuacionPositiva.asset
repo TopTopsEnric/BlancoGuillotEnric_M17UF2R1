@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae66664a50272eb418662c1b74aaa0cd, type: 3}
+  m_Name: ContinuacionPositiva
+  m_EditorClassIdentifier: 
+  lineasDeDialogo:
+  - Es que nadie lo ha conseguido de momento asi que todo es teoria por el momento.
+  - Bueno es tu unica opcion asi que no tendria yo muchas quejas.
+  - No me desvies del tema; esas gemas estan custodiadas por sus defensores asi que
+    tendras que enfrentarte a ellos. Para eso te hemos dado una multiarma dimensional
+  - No me desvies del tema; esas gemas estan custodiadas por sus defensores asi que
+    tendras que enfrentarte a ellos. Para eso te hemos dado una multiarma dimensional...
+  opciones: []

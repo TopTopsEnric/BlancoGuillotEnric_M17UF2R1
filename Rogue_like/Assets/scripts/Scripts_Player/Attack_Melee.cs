@@ -12,7 +12,7 @@ public class Attack_Melee : AttackState
     }
     public override void OnStateUpdate(Player_StateController ec)
     {
-
+        ec.controlador.UpdateMeleeAttackPosition();
     }
     public override void OnStateExit(Player_StateController ec)
     {

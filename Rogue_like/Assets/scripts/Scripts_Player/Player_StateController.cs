@@ -7,6 +7,7 @@ using System;
 public class Player_StateController : MonoBehaviour
 {
     public StateSO CurrentState;
+    public PlayerController controlador;
     public bool arma {get;set;}=false;
     public bool melee { get; set; } = false;
     public bool caminando { get; set; } = false;

@@ -12,7 +12,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;     // Referencia al Rigidbody2D
     private Animator animator;
     private Player_StateController estado;
-    public int cargador=100;
+    public int bulletSpeed = 2;
+    public GameObject bulletPrefab;
+    public float Vida = 100f;
+    public float cargador = 100f;
+    private float nextShootTime = 0f;
+    [SerializeField] private float shootCooldown = 0.5f;
+    private Vector2 lastMouseInput;
+    private bool useFlamethrower = false;
+    [SerializeField] private ParticleSystem flamethrowerParticles;
+    private bool isFlamethrowerActive = false;
+    public GameObject meleeAttackPosition;
+
 
     private void Awake()
     {
@@ -47,6 +58,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void OnArmas(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // Cuando se empieza a presionar el botón
+            Debug.Log("Has cambiado a con arma");
+            estado.arma = true;
+            estado.melee = false;
+            estado.seleccionar_estado();
+        }
+
+    }
+
     public void OnAtacar(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -61,7 +85,9 @@ public class PlayerController : MonoBehaviour
         {
             // Cuando se suelta el botón
             Debug.Log("dejar de Atacar");
-           
+            meleeAttackPosition.GetComponent<Collider2D>().enabled = false;
+            flamethrowerParticles.Stop();
+            isFlamethrowerActive = false;
             estado.atacando = false;
             estado.seleccionar_estado();
         }
@@ -75,6 +101,7 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 0f; // Bloquea el movimiento
             estado.corriendo = false;
             estado.caminando = false;
+            estado.atacando = false;
             estado.recargando = true;
             StartCoroutine(HandleReloadAnimation());
         }
@@ -113,17 +140,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnMirar(InputAction.CallbackContext context)
     {
-        
-        mouseInput = context.ReadValue<Vector2>();
-        // Convertir la posición del mouse a coordenadas del mundo
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mouseInput.x, mouseInput.y, Camera.main.nearClipPlane));
 
-        // Forzar z = -10 para trabajar en el plano correcto
-        mouseWorldPosition.z = -10;
-        
-        // Asignar los valores X e Y al Animator
-        animator.SetFloat("X", mouseWorldPosition.x);
-        animator.SetFloat("Y", mouseWorldPosition.y);
+        if (context.performed)
+        {
+            lastMouseInput = context.ReadValue<Vector2>();
+             
+
+        }
     }
 
 
@@ -152,6 +175,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnChangeWeapon(InputAction.CallbackContext context)
+    {
+        if (context.performed) // Verifica que la acción fue ejecutada, no iniciada o cancelada
+        {
+            useFlamethrower = !useFlamethrower; // Invierte el valor actual de la variable
+        }
+    }
 
     private IEnumerator HandleReloadAnimation()
     {
@@ -172,11 +202,155 @@ public class PlayerController : MonoBehaviour
         estado.seleccionar_estado(); // Cambia al estado correspondiente
     }
 
-    private void FixedUpdate()
+
+    public void Shoot()
+    {
+        cargador -= 10f;
+        // Recalcular la posición del ratón en el mundo
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(lastMouseInput.x, lastMouseInput.y, Mathf.Abs(transform.position.z)));
+
+        // Asegúrate de que la coordenada Z se mantenga en 0 (en el plano 2D)
+        mouseWorldPosition.z = 0;
+
+        // Calcular la dirección de la bala
+        Vector2 direction = ((Vector2)mouseWorldPosition - (Vector2)transform.position).normalized;
+
+        // Asegúrate de que la dirección no sea 0, 0 (puedes añadir un chequeo aquí)
+        if (direction == Vector2.zero)
+        {
+            Debug.LogError("La dirección es (0, 0), lo que significa que el ratón y el jugador están en la misma posición.");
+            return;
+        }
+
+        // Instanciar la bala
+        Vector2 spawnPosition = (Vector2)transform.position + direction * 0.5f; // Ajusta el offset
+        GameObject bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+
+        // Configurar velocidad
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        if (rbBullet != null)
+        {
+            rbBullet.velocity = direction * bulletSpeed;
+        }
+
+        // Debugging
+        Debug.Log($"Mouse World Position: {mouseWorldPosition}, Direction: {direction}, Spawn Position: {spawnPosition}");
+    }
+
+    public void HandleFlamethrower()
+    {
+        Debug.Log("Flamethrower activado.");
+        cargador -= 0.3f;
+
+        // Obtén la posición del ratón en el mundo
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(lastMouseInput.x, lastMouseInput.y, Mathf.Abs(transform.position.z)));
+        mouseWorldPosition.z = -0.2f; // Ajusta la posición en Z para darle prioridad visual
+
+        // Calcula la dirección relativa al jugador
+        Vector2 direction = (mouseWorldPosition - transform.position).normalized;
+
+        // Establece la distancia fija desde el jugador (ajusta este valor según lo necesites)
+        float distanceFromPlayer = 1.0f;
+
+        // Calcula la nueva posición del lanzador de partículas, manteniendo la distancia
+        Vector2 flamethrowerPosition2D = (Vector2)transform.position + direction * distanceFromPlayer;
+
+        // Convierte la posición 2D a 3D y ajusta el valor de Z
+        Vector3 flamethrowerPosition = new Vector3(flamethrowerPosition2D.x, flamethrowerPosition2D.y, -0.1f);
+
+        // Mueve el lanzador de partículas a esa posición
+        flamethrowerParticles.transform.position = flamethrowerPosition;
+
+        // Calcula el ángulo de rotación que debe tener el GameObject (en grados) para mirar hacia el ratón
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Rota el GameObject (sin rotar las partículas) para que apunte en la dirección del ratón
+        flamethrowerParticles.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Activa las partículas si no están activadas
+        if (!flamethrowerParticles.isPlaying)
+        {
+            flamethrowerParticles.Play();
+            Debug.Log("Partículas activadas.");
+        }
+
+        // Verificación adicional para asegurarnos de que se emite correctamente
+        //Debug.Log($"Posición: {flamethrowerParticles.transform.position}, Dirección: {direction}, Ángulo: {angle}");
+    }
+
+
+
+    public void HandleShooting()
+    {
+        if (cargador <= 0)
+        {
+            //sonido sin municion
+        }
+        else
+        {
+
+
+            if (useFlamethrower)
+            {
+                Debug.Log("esta entrando en fuego");
+                HandleFlamethrower();
+            }
+            else
+            {
+                if (Time.time >= nextShootTime)
+                {
+                    Shoot();
+                    nextShootTime = Time.time + shootCooldown;
+                }
+            }
+        }
+    }
+
+    public void UpdateMeleeAttackPosition()
+    {
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(lastMouseInput.x, lastMouseInput.y, Mathf.Abs(transform.position.z)));
+        // Calcular la dirección hacia el ratón desde el jugador
+        Vector2 direction = (mouseWorldPosition - transform.position).normalized;
+
+        // Calcular la posición del GameObject vacío a una distancia constante
+        Vector2 offset = direction * 2f;
+        meleeAttackPosition.transform.position = (Vector2)transform.position + offset;
+
+        // Calcular el ángulo de rotación necesario para que el GameObject mire hacia el ratón
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        meleeAttackPosition.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+
+        meleeAttackPosition.GetComponent<Collider2D>().enabled = true;
+    }
+
+    public void ApplyDamage(float amount)
+    {
+        Vida -= amount;
+        Debug.Log("Vida restante del jugador: " + Vida);
+    }
+
+
+    public void FixedUpdate()
     {
         // Mueve al jugador en 8 direcciones
 
         Vector2 movement = moveInput * moveSpeed;
         rb.velocity = movement;
+
+        // Convertir las coordenadas del mouse a posición del mundo
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(lastMouseInput.x, lastMouseInput.y, Mathf.Abs(transform.position.z)));
+
+        // Forzar z = -10 para trabajar en el plano correcto
+        mouseWorldPosition.z = transform.position.z;
+
+        // Calcular las direcciones relativas al jugador
+        Vector2 lookDirection = new Vector2(mouseWorldPosition.x - transform.position.x, mouseWorldPosition.y - transform.position.y);
+
+        // Asignar los valores X e Y al Animator para que apunte en esa dirección
+        animator.SetFloat("X", lookDirection.x);
+        animator.SetFloat("Y", lookDirection.y);
+
+       // Debug.Log($"Mirando hacia: {lookDirection}");
     }
 }
