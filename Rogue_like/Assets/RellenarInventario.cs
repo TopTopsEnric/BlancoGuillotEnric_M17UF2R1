@@ -29,49 +29,61 @@ public class RellenarInventario : MonoBehaviour
 
     public void GenerarItems()
     {
-         if (listitems.items.Count > 0)
-         {
+        if (listitems.items.Count > 0)
+        {
+            Tienda.SetActive(true);
 
-             Tienda.SetActive(true);
+            int totalItems = panelTienda.transform.childCount;
+            int totalDatos = listitems.items.Count;
 
-             // Limpiar opciones anteriores
-             foreach (Transform child in panelTienda.transform)
-             {
-                 Destroy(child.gameObject);
-             }
-
-             // Crear botones para cada opción
-             foreach (var opcion in listitems.items)
+            // Iterar sobre los hijos y rellenar los datos
+            for (int i = 0; i < totalItems; i++)
             {
-                Button boton = Instantiate(botonOpcionPrefab, panelTienda.transform);
-                RectTransform botonRect = boton.GetComponent<RectTransform>();
+                Transform hijo = panelTienda.transform.GetChild(i);
 
-                // Ajustar tamaño y posición del botón
-               
-                string precioComoTexto = opcion.price.ToString();
-
-                TextMeshProUGUI[] textosBoton = boton.GetComponentsInChildren<TextMeshProUGUI>(true);
-                if (textosBoton != null && textosBoton.Length > 0)
+                if (i < totalDatos)
                 {
-                    textosBoton[0].text = opcion.itemName;
-                    textosBoton[1].text = precioComoTexto;
-                    textosBoton[2].text = opcion.description;
+                    var opcion = listitems.items[i];
+                    hijo.gameObject.SetActive(true); // Asegurarse de que el hijo esté activo
+
+                    // Rellenar los textos
+                    TextMeshProUGUI[] textosHijo = hijo.GetComponentsInChildren<TextMeshProUGUI>(true);
+                    if (textosHijo != null && textosHijo.Length > 0)
+                    {
+                        textosHijo[0].text = opcion.itemName;
+                        textosHijo[1].text = opcion.price.ToString();
+                        textosHijo[2].text = opcion.description;
+                    }
+
+                    // Rellenar la imagen
+                    Image imagen = hijo.GetComponentInChildren<Image>();
+                    if (imagen != null)
+                    {
+                        imagen.sprite = opcion.icon;
+                    }
+
+                    // Añadir funcionalidad al botón
+                    Button boton = hijo.GetComponent<Button>();
+                    if (boton != null)
+                    {
+                        boton.onClick.RemoveAllListeners(); // Eliminar listeners anteriores
+                        boton.onClick.AddListener(() =>
+                        {
+                            // Lógica al hacer clic
+                        });
+                    }
                 }
-                Image imagen = boton.GetComponentInChildren<Image>();
-                imagen.sprite = opcion.icon;
-
-
-                // Añadir funcionalidad al botón
-                boton.onClick.AddListener(() =>
-                 {
-                     ;
-                 });
-             }
-         }
+                else
+                {
+                    // Desactivar hijos que no se usan
+                    hijo.gameObject.SetActive(false);
+                }
+            }
+        }
     }
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
-    }
+         }
 }
