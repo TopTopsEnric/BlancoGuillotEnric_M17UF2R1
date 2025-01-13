@@ -7,31 +7,32 @@ using UnityEngine.UI;
 public class RellenarInventario : MonoBehaviour
 {
     public ListItem listitems;
+    public GameObject Tienda;
     public GameObject panelTienda;
     public Button botonOpcionPrefab; // Prefab de botón para las opciones
     public ItemData ItemActual;
 
-    private int indiceLinea;
+    
     // Start is called before the first frame update
     void Start()
     {
-        panelTienda.SetActive(false);
+        Tienda.SetActive(false);
 
     }
 
     public void IniciarTienda()
     {
         Debug.Log("esta entrando el la funcion de Iniciar tienda");
-        indiceLinea = 0;
+        
         GenerarItems();
     }
 
     public void GenerarItems()
     {
-        /* if (listitems.Items.Length > 0)
+         if (listitems.items.Count > 0)
          {
 
-             panelTienda.SetActive(true);
+             Tienda.SetActive(true);
 
              // Limpiar opciones anteriores
              foreach (Transform child in panelTienda.transform)
@@ -40,20 +41,33 @@ public class RellenarInventario : MonoBehaviour
              }
 
              // Crear botones para cada opción
-             foreach (var opcion in panelTienda.Items)
-             {
-                 Button boton = Instantiate(botonOpcionPrefab, panelTienda.transform);
+             foreach (var opcion in listitems.items)
+            {
+                Button boton = Instantiate(botonOpcionPrefab, panelTienda.transform);
+                RectTransform botonRect = boton.GetComponent<RectTransform>();
 
-                 TextMeshProUGUI textoBoton = boton.GetComponentInChildren<TextMeshProUGUI>();
-                 textoBoton.text = opcion.textoOpcion;
+                // Ajustar tamaño y posición del botón
+               
+                string precioComoTexto = opcion.price.ToString();
 
-                 // Añadir funcionalidad al botón
-                 boton.onClick.AddListener(() =>
+                TextMeshProUGUI[] textosBoton = boton.GetComponentsInChildren<TextMeshProUGUI>(true);
+                if (textosBoton != null && textosBoton.Length > 0)
+                {
+                    textosBoton[0].text = opcion.itemName;
+                    textosBoton[1].text = precioComoTexto;
+                    textosBoton[2].text = opcion.description;
+                }
+                Image imagen = boton.GetComponentInChildren<Image>();
+                imagen.sprite = opcion.icon;
+
+
+                // Añadir funcionalidad al botón
+                boton.onClick.AddListener(() =>
                  {
-                     IniciarDialogo(opcion.siguienteDialogo);
+                     ;
                  });
              }
-         }*/
+         }
     }
     // Update is called once per frame
     void Update()

@@ -1,16 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static ItemData;
+using UnityEngine.UI;
+using TMPro;
 
-public class InventorySlot : MonoBehaviour
+[System.Serializable]
+public class InventorySlot
 {
-    public ItemData item;
-    public int quantity;
+    public ItemData item; // Referencia al ScriptableObject del item
+    public int quantity;  // Cantidad del item en este slot
 
-    public InventorySlot(ItemData item, int quantity)
+    // Constructor para inicializar el slot
+    public InventorySlot(ItemData newItem, int newQuantity)
     {
-        this.item = item;
-        this.quantity = quantity;
+        item = newItem;
+        quantity = newQuantity;
+    }
+
+    // Método para añadir cantidad al slot
+    public void AddQuantity(int amount)
+    {
+        quantity += amount;
+    }
+
+    // Método para restar cantidad del slot
+    public void RemoveQuantity(int amount)
+    {
+        quantity -= amount;
+        if (quantity < 0) quantity = 0;
     }
 }

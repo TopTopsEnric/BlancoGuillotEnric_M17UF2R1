@@ -103,6 +103,9 @@ public class PlayerController : MonoBehaviour
             estado.caminando = false;
             estado.atacando = false;
             estado.recargando = true;
+            estado.arma = true;
+            estado.melee = false;
+            Debug.Log("Recargando: " + estado.recargando);
             StartCoroutine(HandleReloadAnimation());
         }
         else
@@ -196,10 +199,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(animationDuration);
 
         // Al terminar la animación, selecciona el siguiente estado
-        Debug.Log("Recarga completa");
         estado.recargando = false;
-        moveSpeed = 5f; // Restablece la velocidad de movimiento normal
-        estado.seleccionar_estado(); // Cambia al estado correspondiente
+        cargador = 100;
+        estado.seleccionar_estado();
+        Debug.Log("Recarga completa");
+        
+        
     }
 
 

@@ -10,6 +10,7 @@ public class EnemyBombBehavier : MonoBehaviour
     private bool isChasing = false; // Control para comenzar a seguir al jugador
     public float Vida = 100f;
     float tolerance = 0.01f;
+    public SpawnerObjetos spawnobjetos;
 
 
 
@@ -127,6 +128,7 @@ public class EnemyBombBehavier : MonoBehaviour
         yield return new WaitForSeconds(duracionAnimacion);
 
         // Después de que la animación termine, destruye el script
+        spawnobjetos.SpawnObjeto();
         Destroy(gameObject);
     }
 

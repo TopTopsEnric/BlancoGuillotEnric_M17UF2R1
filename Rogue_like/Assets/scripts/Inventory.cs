@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
     public List<InventorySlot> items = new List<InventorySlot>();
+
+    public int money { get; set; } = 0;
 
     public void AddItem(ItemData newItem, int quantity)
     {
@@ -13,15 +14,20 @@ public class Inventory : MonoBehaviour
 
         if (slot != null && newItem.isStackable)
         {
-            slot.quantity += quantity;
+            // Si el item ya existe y es apilable, añade la cantidad
+            slot.AddQuantity(quantity);
             if (slot.quantity > newItem.maxStackSize)
             {
-                slot.quantity = newItem.maxStackSize;
-                // Opcional: manejar el exceso, o agregar en otro slot.
+                slot.quantity = newItem.maxStackSize; // Limita al máximo stack permitido
             }
+        }
+        else if (slot != null)
+        {
+            Debug.Log("Maximo de inventario alcanzado");
         }
         else
         {
+            // Si no existe, crea un nuevo slot
             items.Add(new InventorySlot(newItem, quantity));
         }
     }
@@ -32,9 +38,11 @@ public class Inventory : MonoBehaviour
 
         if (slot != null)
         {
-            slot.quantity -= quantity;
+            slot.RemoveQuantity(quantity);
+
             if (slot.quantity <= 0)
             {
+                // Elimina el slot del inventario si la cantidad es 0
                 items.Remove(slot);
             }
         }
@@ -42,6 +50,12 @@ public class Inventory : MonoBehaviour
 
     private InventorySlot FindItemSlot(ItemData item)
     {
-        return items.Find(slot => slot.item == item);
+        // Busca en la lista el slot que contiene el item especificado
+        return items.Find(slot => ReferenceEquals(slot.item, item));
+    }
+
+    void Update()
+    {
+        Debug.Log("Money: " + money);
     }
 }

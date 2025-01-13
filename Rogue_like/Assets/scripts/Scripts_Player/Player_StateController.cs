@@ -56,12 +56,12 @@ public class Player_StateController : MonoBehaviour
         {
             stateKey = $"Death_{(arma ? "Gun" : (melee ? "Melee" : "Normal"))}";
         }
-        if (recargando)
+        else if (recargando)
         {
             stateKey = "Recargando";
         }
         // Si el jugador está atacando, selecciona el estado de ataque correspondiente
-        if (atacando)
+        else if (atacando)
         {
             // Verificamos si está corriendo y atacando
             if (corriendo)

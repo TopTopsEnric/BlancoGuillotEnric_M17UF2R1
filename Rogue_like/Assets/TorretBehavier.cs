@@ -12,7 +12,8 @@ public class TorretBehavier : MonoBehaviour
     public GameObject childObject;
     public float shootCooldown = 5.0f; // Tiempo de espera entre disparos
     private float lastShootTime = 0.0f;
-    private bool isNotExploading=true;
+    private bool isNotExploading = true;
+    public SpawnerObjetos spawnobjetos;
 
 
     public void OnTriggerStay2D(Collider2D other)
@@ -94,6 +95,7 @@ public class TorretBehavier : MonoBehaviour
         yield return new WaitForSeconds(duracionAnimacion);
 
         // Después de que la animación termine, destruye el script
+        spawnobjetos.SpawnObjeto();
         Destroy(gameObject);
     }
 

@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: Realoding
   m_EditorClassIdentifier: 
   StatesToGo:
-  - {fileID: 11400000, guid: 191f80449a2a8184bab727592bb64a0b, type: 2}
   - {fileID: 11400000, guid: 0f51dc1ed137bb2448da8bfaf37176a9, type: 2}
-  - {fileID: 11400000, guid: 96b1e4e7e615b89498ddb533f20a9d3b, type: 2}
