@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PolvoRapido
   m_EditorClassIdentifier: 
   itemName: Champirapidos
-  icon: {fileID: 1668925936, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
+  icon: {fileID: 1356355480, guid: b631ed305dfd43c488e0f8edf5c829bc, type: 3}
   description: Cuando no tienes energia para el dia a dia tomar cocaina va de lujo.
   isStackable: 1
   maxStackSize: 2

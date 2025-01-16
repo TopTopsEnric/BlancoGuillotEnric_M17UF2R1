@@ -9,9 +9,8 @@ public class RellenarInventario : MonoBehaviour
     public ListItem listitems;
     public GameObject Tienda;
     public GameObject panelTienda;
-    public Button botonOpcionPrefab; // Prefab de botón para las opciones
     public ItemData ItemActual;
-
+    public Inventory inventario;
     
     // Start is called before the first frame update
     void Start()
@@ -51,8 +50,8 @@ public class RellenarInventario : MonoBehaviour
                     if (textosHijo != null && textosHijo.Length > 0)
                     {
                         textosHijo[0].text = opcion.itemName;
-                        textosHijo[1].text = opcion.price.ToString();
-                        textosHijo[2].text = opcion.description;
+                        textosHijo[1].text = "precio=" + opcion.price.ToString();
+                        
                     }
 
                     // Rellenar la imagen
@@ -81,6 +80,28 @@ public class RellenarInventario : MonoBehaviour
             }
         }
     }
+
+    public void SeleccionarObjeto(ItemData itemSeleccionado)
+    {
+        // Asigna el objeto seleccionado a la variable ItemActual
+        ItemActual = itemSeleccionado;
+        Debug.Log($"Has seleccionado: {ItemActual.itemName}, Precio: {ItemActual.price}");
+    }
+
+    public void buy_item()
+    {
+        if (inventario.money >= ItemActual.price)
+        {
+            inventario.money -= ItemActual.price;
+            inventario.AddItem(ItemActual, 1);
+        }
+        else
+        {
+            // sonido error de compra
+        }
+        
+    }
+
         // Update is called once per frame
         void Update()
         {

@@ -6,7 +6,7 @@ public class Inventory : MonoBehaviour
 {
     public List<InventorySlot> items = new List<InventorySlot>();
 
-    public int money { get; set; } = 0;
+    public float money { get; set; } = 50;
 
     public void AddItem(ItemData newItem, int quantity)
     {
