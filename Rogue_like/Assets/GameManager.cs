@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
     private Stack<GameObject> projectilePool = new Stack<GameObject>(); // Pila para almacenar proyectiles
     public GameObject projectilePrefab; // Prefab del proyectil
+    public bool playa { get; set; } = false;
+    public bool bosque { get; set; } = false;
+    public bool cueva { get; set; } = false;
+    
 
     private void Awake()
     {
@@ -56,5 +61,17 @@ public class GameManager : MonoBehaviour
     {
         go.SetActive(false);
         projectilePool.Push(go);
+    }
+
+    public void ChangeScene(int sceneIndex)
+    {
+        if (sceneIndex >= 0 && sceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
+        else
+        {
+            Debug.LogError("El índice de escena no es válido: " + sceneIndex);
+        }
     }
 }
