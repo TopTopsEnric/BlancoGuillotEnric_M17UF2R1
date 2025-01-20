@@ -10,7 +10,9 @@ public class RellenarInventario : MonoBehaviour
     public GameObject Tienda;
     public GameObject panelTienda;
     public ItemData ItemActual;
+    public GameObject portador;
     public Inventory inventario;
+    public AudioSource sonido;
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,8 @@ public class RellenarInventario : MonoBehaviour
     public void IniciarTienda()
     {
         Debug.Log("esta entrando el la funcion de Iniciar tienda");
-        
+        inventario = portador.GetComponent<Inventory>();
+        sonido=Tienda.GetComponent<AudioSource>();
         GenerarItems();
     }
 
@@ -97,7 +100,7 @@ public class RellenarInventario : MonoBehaviour
         }
         else
         {
-            // sonido error de compra
+            sonido.Play();
         }
         
     }

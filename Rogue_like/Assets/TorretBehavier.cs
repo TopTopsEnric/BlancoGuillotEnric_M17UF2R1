@@ -14,7 +14,16 @@ public class TorretBehavier : MonoBehaviour
     private float lastShootTime = 0.0f;
     private bool isNotExploading = true;
     public SpawnerObjetos spawnobjetos;
+    public AudioSource sonido;
+    
 
+
+
+    private void Start()
+    {
+        // Instancia la barra de vida.
+        
+    }
 
     public void OnTriggerStay2D(Collider2D other)
     {
@@ -58,6 +67,7 @@ public class TorretBehavier : MonoBehaviour
             disparador disparar = childObject.GetComponent<disparador>();
             if (disparar != null)
             {
+                sonido.Play();
                 Debug.Log("Disparando");
                 StartCoroutine(disparar.SpawnProjectiles(targetPosition));
                 lastShootTime = Time.time; // Actualiza el tiempo del último disparo
@@ -102,6 +112,9 @@ public class TorretBehavier : MonoBehaviour
     public void ApplyDamage(float amount)
     {
         Vida -= amount;
+        // Actualiza la barra de vida.
+      
+        
         Debug.Log("Vida restante del la torre: " + Vida);
     }
 

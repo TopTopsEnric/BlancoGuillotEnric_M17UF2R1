@@ -6,6 +6,7 @@ public class TiendaTrigger : MonoBehaviour
 {
     
     public RellenarInventario inventario;
+    public GameObject jugador;
     
     private bool isPlayerInRange = false; // Para saber si el jugador está en rango
 
@@ -19,7 +20,8 @@ public class TiendaTrigger : MonoBehaviour
         if (collision.CompareTag("Player")) // Verifica si el objeto tiene el tag "Player"
         {
             isPlayerInRange = true;
-            Debug.Log("Jugador en rango");
+            jugador = collision.gameObject;
+            Debug.Log(jugador.name);
         }
     }
 
@@ -38,7 +40,9 @@ public class TiendaTrigger : MonoBehaviour
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.Q))
         {
+            inventario.portador = jugador;
             inventario.IniciarTienda();
+            
         }
     }
 }

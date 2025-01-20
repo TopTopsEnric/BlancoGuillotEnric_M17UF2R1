@@ -11,15 +11,18 @@ public class EnemyBombBehavier : MonoBehaviour
     public float Vida = 100f;
     float tolerance = 0.01f;
     public SpawnerObjetos spawnobjetos;
-
-
+    public AudioSource sonido;
+   
 
     public Animator animator;  // Referencia al Animator
 
     private void Start()
     {
         EnemyPosition = transform.position;
-       
+
+        
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -116,6 +119,7 @@ public class EnemyBombBehavier : MonoBehaviour
     public void Bomba()
     {
         animator.SetBool("Muerte", true);
+        sonido.Play();
         StartCoroutine(EsperarFinAnimacion());
     }
 
@@ -135,6 +139,7 @@ public class EnemyBombBehavier : MonoBehaviour
     public void ApplyDamage(float amount)
     {
         Vida -= amount;
+     
         Debug.Log("Vida restante del Suicida: " + Vida);
     }
 
@@ -147,8 +152,9 @@ public class EnemyBombBehavier : MonoBehaviour
         }
         buscando();
         animationControler();
-        
 
+
+        
     }
 
 }

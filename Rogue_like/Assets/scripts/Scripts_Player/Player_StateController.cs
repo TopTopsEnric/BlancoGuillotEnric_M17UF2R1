@@ -54,7 +54,7 @@ public class Player_StateController : MonoBehaviour
         string stateKey = "";
         if (muerto)
         {
-            stateKey = $"Death_{(arma ? "Gun" : (melee ? "Melee" : "Normal"))}";
+            stateKey = $"Death_{(arma ? "Gun" : (melee ? "Melee" : "normal"))}";
         }
         else if (recargando)
         {

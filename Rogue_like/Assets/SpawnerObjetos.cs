@@ -19,6 +19,8 @@ public class SpawnerObjetos : MonoBehaviour
         int randomIndex = Random.Range(0, prefabs.Length);
         GameObject prefabSeleccionado = prefabs[randomIndex];
 
+        
+
         // Instancia el prefab en la posición y rotación del GameObject
         Instantiate(prefabSeleccionado, transform.position, transform.rotation);
     }

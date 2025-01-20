@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class GemaBehavier : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public int nombreNivel = 0;
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // Comprueba si el objeto que entra tiene el tag "Player"
+       
         if (other.CompareTag("Player"))
         {
-            if (true)
-            {
-                // Cambia el valor del bool nivel3
-                //gameManager.nivel3 = true;
+            
+            
+                switch (nombreNivel)
+                {
+                    case 1:
+                        GameManager.gameManager.playa = true;
+                        break;
+                    case 2:
+                        GameManager.gameManager.bosque = true;
+                        break ;
+                    case 3:
+                        GameManager.gameManager.cueva = true;
+                        break ;
 
-                // Llama a la función ChangeScene
-                //gameManager.ChangeScene();
-            }
+                }
+
+                GameManager.gameManager.ChangeScene(1);
+            
         }
     }
 }

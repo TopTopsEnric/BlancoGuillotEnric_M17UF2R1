@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
+    
+    public Inventory inventory;
     private Stack<GameObject> projectilePool = new Stack<GameObject>(); // Pila para almacenar proyectiles
     public GameObject projectilePrefab; // Prefab del proyectil
     public bool playa { get; set; } = false;
@@ -26,15 +28,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        // Inicializar el pool de proyectiles (podrías establecer un número inicial de proyectiles)
-        for (int i = 0; i < 10; i++) // 10 proyectiles por defecto
+        // Suscribir el evento para cargar la escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // Desuscribir el evento para evitar errores
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // Este método se llama cuando se carga una escena
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Inicializar el inventario y el pool de proyectiles
+        inventory = GetComponent<Inventory>();
+
+        // Inicializar el pool de proyectiles (30 proyectiles por defecto)
+        for (int i = 0; i < 30; i++)
         {
             GameObject projectile = Instantiate(projectilePrefab);
             projectile.SetActive(false);
             projectilePool.Push(projectile);
         }
+
         Debug.Log(projectilePool);
     }
 
@@ -73,5 +92,18 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("El índice de escena no es válido: " + sceneIndex);
         }
+    }
+
+    public void Finish()
+    {
+        // Mensaje de depuración en la consola
+        Debug.Log("Cerrando el juego...");
+
+        // Si está en el Editor, se detiene la ejecución
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // Cerrar la aplicación
+#endif
     }
 }

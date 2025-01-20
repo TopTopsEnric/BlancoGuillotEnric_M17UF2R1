@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+       
     public float moveSpeed = 0f; // Velocidad de movimiento
     private Vector2 moveInput;// Entrada de movimiento
     private Vector2 mouseInput;
@@ -23,13 +24,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem flamethrowerParticles;
     private bool isFlamethrowerActive = false;
     public GameObject meleeAttackPosition;
-
+    private bool isDying = false;
+    public AudioSource sonido;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         estado = GetComponent<Player_StateController>();
+
     }
 
     public void OnMelee(InputAction.CallbackContext context)
@@ -106,6 +109,7 @@ public class PlayerController : MonoBehaviour
             estado.arma = true;
             estado.melee = false;
             Debug.Log("Recargando: " + estado.recargando);
+            sonido.Play();
             StartCoroutine(HandleReloadAnimation());
         }
         else
@@ -203,8 +207,31 @@ public class PlayerController : MonoBehaviour
         cargador = 100;
         estado.seleccionar_estado();
         Debug.Log("Recarga completa");
+
+
+    }
+
+    private IEnumerator HandleDeathAnimation()
+    {
+        isDying = true;
+        // Ejecuta la animación de recarga
+        // estado.animator.SetTrigger("Reload"); // Asegúrate de que "Reload" sea un trigger válido en el Animator
+        estado.seleccionar_estado();
+
+        // Opcional: sincroniza con la duración de la animación
+        AnimatorStateInfo stateInfo = estado.animator.GetCurrentAnimatorStateInfo(0);
+        float animationDuration = stateInfo.length;
+
+        yield return new WaitForSeconds(animationDuration);
+
+        // Al terminar la animación, selecciona el siguiente estado
+        estado.muerto = false;
+        estado.seleccionar_estado();
+        Debug.Log("Muerte completada");
+        GameManager.gameManager.ChangeScene(1);
         
-        
+
+
     }
 
 
@@ -356,6 +383,13 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("X", lookDirection.x);
         animator.SetFloat("Y", lookDirection.y);
 
-       // Debug.Log($"Mirando hacia: {lookDirection}");
+        // Debug.Log($"Mirando hacia: {lookDirection}");
+
+        if (Vida <= 0 && !isDying)
+        {
+            moveSpeed = 0;
+            estado.muerto = true;
+            StartCoroutine(HandleDeathAnimation());
+        }
     }
 }
