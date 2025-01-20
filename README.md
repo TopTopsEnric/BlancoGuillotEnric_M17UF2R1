@@ -11,3 +11,5 @@ Q: interactuas amb el entorn(pot interactuar amb el comerciant, el elf per conve
 4: cambias de modo entre rifle i llançaflames
 R: quan no tens municio recargas
 shift: esprintas
+
+Ejecutable i build:https://drive.google.com/drive/folders/1pbIu6RIMTy6TwU6HQGMRUFwA-4-OI3qm?usp=sharing
